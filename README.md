@@ -1,5 +1,9 @@
 # creditcard
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/retgits/creditcard)](https://goreportcard.com/report/github.com/retgits/creditcard)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/retgits/creditcard)
+![GitHub](https://img.shields.io/github/license/retgits/creditcard)
+
 A Go module to perform basic credit card validation.
 
 ## Installation
