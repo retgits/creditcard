@@ -202,7 +202,7 @@ func (c *Card) isExpired() bool {
 	date := fmt.Sprintf("%d-%d-01", c.ExpiryYear, c.ExpiryMonth)
 	parsetime, _ := time.Parse("2006-01-02", date)
 
-	return parsetime.After(time.Now())
+	return parsetime.Before(time.Now())
 }
 
 // matchCVV checks whether the CVV length matches the expected length
