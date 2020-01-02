@@ -143,6 +143,9 @@ func (c *Card) Validate() *Validation {
 	}
 
 	val.IsExpired = c.isExpired()
+	if val.IsExpired {
+		val.Errors = append(val.Errors, "creditcard is expired")
+	}
 
 	if len(c.Type) == 0 {
 		cardType, err := c.determineCardType()
@@ -153,12 +156,18 @@ func (c *Card) Validate() *Validation {
 	}
 
 	val.ValidCVV = c.matchCVV()
+	if val.ValidCVV {
+		val.Errors = append(val.Errors, "cvv doesn't match")
+	}
 
 	validNumber, err := c.validCardNumber()
 	if err != nil {
 		val.Errors = append(val.Errors, err.Error())
 	}
 	val.ValidCardNumber = validNumber
+	if val.ValidCardNumber {
+		val.Errors = append(val.Errors, "card number is not valid")
+	}
 
 	return val
 }
