@@ -156,7 +156,7 @@ func (c *Card) Validate() *Validation {
 	}
 
 	val.ValidCVV = c.matchCVV()
-	if val.ValidCVV {
+	if !val.ValidCVV {
 		val.Errors = append(val.Errors, "cvv doesn't match")
 	}
 
@@ -165,7 +165,7 @@ func (c *Card) Validate() *Validation {
 		val.Errors = append(val.Errors, err.Error())
 	}
 	val.ValidCardNumber = validNumber
-	if val.ValidCardNumber {
+	if !val.ValidCardNumber {
 		val.Errors = append(val.Errors, "card number is not valid")
 	}
 
